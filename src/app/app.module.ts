@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule, Route} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -10,14 +9,9 @@ import { ProductService } from './services/product.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { RoutingModule } from './routing/routing.module';
 
 
-const routes: Route[] = [
-   {path: 'welcome', component: WelcomeComponent},
-   {path: '', component: WelcomeComponent, pathMatch: 'full'},
-   {path: 'list', component: ProductListComponent},
-   {path: '**', component: NotfoundComponent},
-];
 
 @NgModule({
   declarations: [
@@ -31,7 +25,7 @@ const routes: Route[] = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RoutingModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
